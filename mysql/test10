@@ -1,0 +1,19 @@
+/*
+CREATE TABLE `salaries` (
+`emp_no` int(11) NOT NULL,
+`salary` int(11) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`from_date`));
+
+count(emp_no)这个方法直接计算的，注意用count这个统计出现次数的方法。
+
+WHERE语句在GROUP BY语句之前；SQL会在分组之前计算WHERE语句。   
+HAVING语句在GROUP BY语句之后；SQL会在分组之后计算HAVING语句。
+*/
+
+
+select emp_no,count(emp_no) as t
+from salaries
+group by emp_no
+having t>15;
