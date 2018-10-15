@@ -1,0 +1,19 @@
+/*
+CREATE TABLE `dept_emp` (
+`emp_no` int(11) NOT NULL,
+`dept_no` char(4) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`dept_no`));
+CREATE TABLE `dept_manager` (
+`dept_no` char(4) NOT NULL,
+`emp_no` int(11) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`dept_no`));
+*/
+select e.emp_no,m.emp_no as manager_no 
+from dept_manager m,dept_emp e 
+where e.dept_no = m.dept_no 
+and e.emp_no != m.emp_no 
+and m.to_date='9999-01-01';
